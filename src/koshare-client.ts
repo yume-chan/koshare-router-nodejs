@@ -3,11 +3,11 @@ import WebSocket from 'ws';
 
 import AsyncOperationManager from './async-operation-manager';
 import MultiMap, { ReadonlyMultiMap } from './multi-map';
-import { ServerPacket, PacketType, SubscribeSuccessResponsePacket, ServerMessagePacket, ServerBroadcastPacket } from './packet';
+import { ServerPacket, PacketType, SubscribeSuccessResponsePacket, ForwardPacket } from './packet';
 
 const log = debug('koshare-client');
 
-type PacketHandler<T> = (packet: T & (ServerMessagePacket | ServerBroadcastPacket)) => void;
+type ForwardPacketHandler<T> = (packet: ForwardPacket<T>) => void;
 
 export interface AsyncOperationResponsePacket {
     id: number;
@@ -192,7 +192,7 @@ export default class KoshareClient {
         return await promise;
     }
 
-    public async subscribe<T extends object>(topic: string, handler: PacketHandler<T>): Promise<void> {
+    public async subscribe<T extends object>(topic: string, handler: ForwardPacketHandler<T>): Promise<void> {
         if (this._handlers.get(topic).length === 0) {
             await this.sendOperation<SubscribeSuccessResponsePacket>(PacketType.Subscribe, topic);
         }
@@ -201,8 +201,8 @@ export default class KoshareClient {
     }
 
     public unsubscribe(topic: string): Promise<void>;
-    public unsubscribe<T extends object>(topic: string, handler: PacketHandler<T>): Promise<void>;
-    public async unsubscribe<T extends object>(topic: string, handler?: PacketHandler<T>): Promise<void> {
+    public unsubscribe<T extends object>(topic: string, handler: ForwardPacketHandler<T>): Promise<void>;
+    public async unsubscribe<T extends object>(topic: string, handler?: ForwardPacketHandler<T>): Promise<void> {
         if (typeof handler === 'undefined') {
             this._handlers.clear(topic);
         } else {

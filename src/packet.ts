@@ -68,4 +68,6 @@ export type ClientPacket<T> = T & (ClientCommonPacket | ClientMessagePacket);
 
 export type ResponsePacket<T> = T & (ResponseCommonPacket | SubscribeResponsePacket<T>);
 
-export type ServerPacket<T> = ResponsePacket<T> | (T & (ServerBroadcastPacket | ServerMessagePacket));
+export type ForwardPacket<T> = T & (ServerBroadcastPacket | ServerMessagePacket);
+
+export type ServerPacket<T> = ResponsePacket<T> | ForwardPacket<T>;

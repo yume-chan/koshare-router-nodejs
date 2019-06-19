@@ -6,7 +6,7 @@
   - [API](#API)
     - [Client](#Client)
     - [Server](#Server)
-- [License](#License)
+  - [License](#License)
 
 ## What's Koshare Router
 
@@ -27,15 +27,15 @@ Read [here](docs/protocol-specification.md).
 ### Client
 
 ``` ts
-type PacketHandler<T> = (packet: T & (ServerMessagePacket | ServerBroadcastPacket)) => void;
+type ForwardPacketHandler<T> = (packet: ForwardPacket<T>) => void;
 
 class KoshareClient {
     static connect(endpoint: string, prefix?: string): Promise<KoshareClient>;
 
-    subscribe<T extends object>(topic: string, handler: PacketHandler<T>): Promise<void>;
+    subscribe<T extends object>(topic: string, handler: ForwardPacketHandler<T>): Promise<void>;
 
     unsubscribe(topic: string): Promise<void>;
-    unsubscribe<T extends object>(topic: string, handler: PacketHandler<T>): Promise<void>;
+    unsubscribe<T extends object>(topic: string, handler: ForwardPacketHandler<T>): Promise<void>;
 
     broadcast<T extends object>(topic: string, body?: T): Promise<void>;
     message<T extends object>(topic: string, destination: number, body?: T): Promise<void>;
@@ -94,6 +94,6 @@ import { KoshareServer } from '@yume-chan/koshare-router';
 })();
 ```
 
-# License
+## License
 
 MIT
