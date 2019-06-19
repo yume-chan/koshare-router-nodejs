@@ -1,0 +1,39 @@
+{
+  "name": "@yume-chan/koshare-router",
+  "version": "1.0.0",
+  "description": "node.js server and client implementations for gladkikhartem/koshare-router",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yume-chan/koshare-router-nodejs.git"
+  },
+  "keywords": [
+    "websocket",
+    "koshare-router"
+  ],
+  "author": "Simon Chan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yume-chan/koshare-router-nodejs/issues"
+  },
+  "homepage": "https://github.com/yume-chan/koshare-router-nodejs#readme",
+  "devDependencies": {
+    "@types/debug": "^4.1.4",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.8",
+    "@types/ws": "^6.0.1",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "ws": "^7.0.1"
+  }
+}
