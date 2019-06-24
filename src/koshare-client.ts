@@ -1,7 +1,8 @@
 import debug from 'debug';
 import WebSocket from 'ws';
 
-import AsyncOperationManager from './async-operation-manager';
+import AsyncOperationManager from '@yume-chan/async-operation-manager';
+
 import MultiMap, { ReadonlyMultiMap } from './multi-map';
 import { ServerPacket, PacketType, SubscribeSuccessResponsePacket, ForwardPacket } from './packet';
 

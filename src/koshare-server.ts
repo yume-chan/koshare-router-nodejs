@@ -2,18 +2,33 @@ import { EventEmitter } from 'events';
 
 import WebSocket, { Server } from 'ws';
 
-import { PromiseResolver } from './async-operation-manager';
-import MultiMap from './multi-map';
+import { PromiseResolver } from '@yume-chan/async-operation-manager';
+
+import MultiMap, { ReadonlyMultiMap } from './multi-map';
 import { PacketType } from './packet';
 
 export default class KoshareServer extends EventEmitter {
-    static async create(options?: import('ws').ServerOptions): Promise<KoshareServer> {
+    public static async listen(options: import('ws').ServerOptions): Promise<KoshareServer> {
         const resolver = new PromiseResolver<void>();
 
-        const result = new KoshareServer(options);
-        result._socket.on('listening', () => {
+        function handleListening() {
             resolver.resolve();
-        });
+            cleanUp();
+        }
+
+        function handleError(e: Error) {
+            resolver.reject(e);
+            cleanUp();
+        }
+
+        function cleanUp() {
+            result.socket.off('listening', handleListening);
+            result.socket.off('error', handleError);
+        }
+
+        const result = new KoshareServer(options);
+        result.socket.on('listening', handleListening);
+        result.socket.on('error', handleError);
 
         await resolver.promise;
         return result;
@@ -24,11 +39,12 @@ export default class KoshareServer extends EventEmitter {
 
     private _id: number = 0;
 
-    private _topicPeers: MultiMap<string, number> = new MultiMap();
+    private _subscription: MultiMap<string, number> = new MultiMap();
+    public get subscription(): ReadonlyMultiMap<string, number> { return this._subscription; }
 
     private _connections: Map<number, WebSocket> = new Map();
 
-    private constructor(options?: import('ws').ServerOptions) {
+    public constructor(options?: import('ws').ServerOptions) {
         super();
 
         this._socket = new Server(options);
@@ -36,20 +52,20 @@ export default class KoshareServer extends EventEmitter {
     }
 
     private subscribe(id: number, topic: string): boolean {
-        if (this._topicPeers.get(topic).includes(id)) {
+        if (this._subscription.get(topic).includes(id)) {
             return false;
         }
 
-        this._topicPeers.add(topic, id);
+        this._subscription.add(topic, id);
         return true;
     }
 
     private unsubscribe(id: number, topic: string): boolean {
-        if (!this._topicPeers.get(topic).includes(id)) {
+        if (!this._subscription.get(topic).includes(id)) {
             return false;
         }
 
-        this._topicPeers.remove(topic, id);
+        this._subscription.remove(topic, id);
         return true;
     }
 
@@ -109,7 +125,7 @@ export default class KoshareServer extends EventEmitter {
                     });
 
                     const peers: number[] = [];
-                    for (const item of this._topicPeers.get(topic)) {
+                    for (const item of this._subscription.get(topic)) {
                         if (item !== id) {
                             peers.push(item);
                             this._connections.get(item)!.send(hello);
@@ -130,7 +146,7 @@ export default class KoshareServer extends EventEmitter {
                 case PacketType.Broadcast:
                     packet.src = id;
                     let broadcast = JSON.stringify(packet);
-                    for (const item of this._topicPeers.get(topic)) {
+                    for (const item of this._subscription.get(topic)) {
                         if (item !== id) {
                             this._connections.get(item)!.send(broadcast);
                         }
@@ -144,7 +160,7 @@ export default class KoshareServer extends EventEmitter {
                         break;
                     }
 
-                    if (!this._topicPeers.get(topic).includes(packet.dst)) {
+                    if (!this._subscription.get(topic).includes(packet.dst)) {
                         break;
                     }
 
@@ -162,15 +178,15 @@ export default class KoshareServer extends EventEmitter {
         });
 
         client.addEventListener('error', () => {
-            for (const key of this._topicPeers.keys()) {
-                this._topicPeers.remove(key, id);
+            for (const key of this._subscription.keys()) {
+                this._subscription.remove(key, id);
             }
             this._connections.delete(id);
         });
 
         client.addEventListener('close', () => {
-            for (const key of this._topicPeers.keys()) {
-                this._topicPeers.remove(key, id);
+            for (const key of this._subscription.keys()) {
+                this._subscription.remove(key, id);
             }
             this._connections.delete(id);
         });

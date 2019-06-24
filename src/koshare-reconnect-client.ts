@@ -3,7 +3,7 @@ import WebSocket from 'ws';
 
 import KoshareClient, { connectWebSocket, AsyncOperationResponsePacket } from "./koshare-client";
 import { delay } from './util';
-import { PacketType, SubscribeSuccessResponsePacket } from './packet';
+import { PacketType } from './packet';
 
 const log = debug('koshare-reconnect-client');
 

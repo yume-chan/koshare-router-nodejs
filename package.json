@@ -1,9 +1,12 @@
 {
   "name": "@yume-chan/koshare-router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "node.js server and client implementations for gladkikhartem/koshare-router",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",
@@ -34,6 +37,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
+    "@yume-chan/async-operation-manager": "^1.0.0",
     "debug": "^4.1.1",
     "ws": "^7.0.1"
   }

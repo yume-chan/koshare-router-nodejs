@@ -1,9 +1,9 @@
-import { PromiseResolver } from '../src/async-operation-manager';
-import KoshareClient from '../src/koshare-client';
-import KoshareServer from '../src/koshare-server';
+import { PromiseResolver } from '@yume-chan/async-operation-manager';
+
+import { KoshareClient, KoshareServer, PacketType } from '../src';
 import { delay } from '../src/util';
+
 import { randomString, randomPort } from './util';
-import { PacketType } from '../src/packet';
 
 const noop = () => { };
 
@@ -11,7 +11,7 @@ interface Data {
     data: string;
 }
 
-describe('koshare client', () => {
+describe('client', () => {
     let server!: KoshareServer;
     let client!: KoshareClient;
     let echo!: KoshareClient;
@@ -19,7 +19,7 @@ describe('koshare client', () => {
     const port = randomPort();
 
     beforeEach(async () => {
-        server = await KoshareServer.create({ port });
+        server = await KoshareServer.listen({ port });
         client = await KoshareClient.connect(`ws://localhost:${port}`);
         echo = await KoshareClient.connect(`ws://localhost:${port}`);
     });
