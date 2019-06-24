@@ -1,5 +1,5 @@
 dependencies:
-  '@yume-chan/async-operation-manager': 1.0.0
+  '@yume-chan/async-operation-manager': 1.0.1
   debug: 4.1.1
   ws: 7.0.1
 devDependencies:
@@ -384,10 +384,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-SOhuU4wNBxhhTHxYaiG5NY4HBhDIDnJF60GU+2LqHAdKKer86//e4yg69aENCtQ04n0ovz+tq2YPME5t5yp4pw==
-  /@yume-chan/async-operation-manager/1.0.0:
+  /@yume-chan/async-operation-manager/1.0.1:
     dev: false
     resolution:
-      integrity: sha512-01B0rMvmd48PCSy3t+5UKQM+PrfyS7RVm6K57DjW2mWxJ2s779pJ3fGFRSKMS5G8Z/HwBGe+afkOoJbQ1LdIvQ==
+      integrity: sha512-ju38Oa9HKwpr5WgpuASCWQFak/02XuF1S8dET7n2eKYMmdxnMXIJHM+eLWqpwFouqkHu7mkeeJavvBWXGz257Q==
   /abab/2.0.0:
     dev: true
     resolution:
@@ -3575,7 +3575,7 @@ specifiers:
   '@types/jest': ^24.0.15
   '@types/node': ^12.0.8
   '@types/ws': ^6.0.1
-  '@yume-chan/async-operation-manager': ^1.0.0
+  '@yume-chan/async-operation-manager': ^1.0.1
   debug: ^4.1.1
   jest: ^24.8.0
   ts-jest: ^24.0.2

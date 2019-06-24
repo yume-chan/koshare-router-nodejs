@@ -37,7 +37,7 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@yume-chan/async-operation-manager": "^1.0.0",
+    "@yume-chan/async-operation-manager": "^1.0.1",
     "debug": "^4.1.1",
     "ws": "^7.0.1"
   }
