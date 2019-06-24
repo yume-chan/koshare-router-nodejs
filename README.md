@@ -5,7 +5,10 @@
   - [Protocol Specification](#Protocol-Specification)
   - [API](#API)
     - [Client](#Client)
+      - [Reconnect Client](#Reconnect-Client)
     - [Server](#Server)
+      - [`listen`](#listen)
+      - [constructor](#constructor)
   - [License](#License)
 
 ## What's Koshare Router
@@ -66,11 +69,17 @@ import { KoshareClient } from '@yume-chan/koshare-router';
 })();
 ```
 
+#### Reconnect Client
+
+The `KoshareReconnectClient`, wraps `KoshareClient`, will automatically reconnect if it got disconnected.
+
 ### Server
 
 ```ts
 class KoshareServer extends EventEmitter {
-    static create(options?: import('ws').ServerOptions): Promise<KoshareServer>;
+    static listen(options?: import('ws').ServerOptions): Promise<KoshareServer>;
+
+    constructor(options?: import('ws').ServerOptions);
 
     readonly socket: import('ws').Server;
 
@@ -82,6 +91,12 @@ class KoshareServer extends EventEmitter {
 }
 ```
 
+#### `listen`
+
+Use `listen` with `host`, `port`, `path` options to create a new Koshare server.
+
+The result `Promise` will be resolved after the server is in listening state.
+
 Example:
 
 ``` ts
@@ -90,9 +105,52 @@ import { KoshareServer } from '@yume-chan/koshare-router';
 (async () => {
     const server = KoshareServer.create({ port: 8080 });
 
+    // connect to ws://localhost:8080
+
     server.close();
 })();
 ```
+
+#### constructor
+
+Use `new KoshareServer` with `server` option to reuse an exist HTTP/S server, or with `noServer: true` option to not create a server.
+
+You can use `handleUpgrade` with `noServer: true` to share single HTTP/S server with multiple WebSocket servers (including Koshare servers).
+
+See [Multiple servers sharing a single HTTP/S server](https://github.com/websockets/ws#multiple-servers-sharing-a-single-https-server) in ws's documetation.
+
+``` ts
+import http from 'http';
+import url from 'url';
+
+import ws from 'ws';
+
+const server = http.createServer();
+const koshare = new KoshareServer({ noServer: true });
+const wss = new ws.Server({ noServer: true });
+
+wss.on('connection', function connection(ws) {
+  // ...
+});
+
+server.on('upgrade', function upgrade(request, socket, head) {
+  const pathname = url.parse(request.url).pathname;
+
+  if (pathname === '/foo') {
+    koshare.handleUpgrade(request, socket, head);
+  } else if (pathname === '/bar') {
+    wss.handleUpgrade(request, socket, head, function done(ws) {
+      wss.emit('connection', ws, request);
+    });
+  } else {
+    socket.destroy();
+  }
+});
+
+server.listen(8080);
+```
+
+Note that `handleUpgrade` in `KoshareServer` doesn't need a callback. It's handled internally.
 
 ## License
 
