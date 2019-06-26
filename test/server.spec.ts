@@ -1,9 +1,10 @@
 import WebSocket from 'ws';
 
 import { PromiseResolver } from '@yume-chan/async-operation-manager';
+import { PacketType } from '@yume-chan/koshare-router-client';
 
-import { KoshareServer, PacketType } from '../src';
-import { delay } from '../src/util';
+import KoshareServer from '../src';
+import { delay } from './util';
 
 import { randomPort, randomString } from './util';
 
@@ -154,7 +155,7 @@ describe('server', () => {
 
             await handlePacketPromise;
 
-            expect(server.subscription.get(packet.topic)).toHaveProperty('length', 1);
+            expect(server.subscription.size(packet.topic)).toBe(1);
 
             expect(handleResponse).toBeCalledTimes(1);
             expect(handleResponse).toBeCalledWith({ ...packet, peers: [] });
@@ -170,7 +171,7 @@ describe('server', () => {
 
             await handlePacketPromise;
 
-            expect(server.subscription.get(packet.topic)).toHaveProperty('length', 1);
+            expect(server.subscription.size(packet.topic)).toBe(1);
 
             expect(handleResponse).toBeCalledTimes(2);
             expect(handleResponse).nthCalledWith(2, { ...packet, error: 'AlreadySubscribed' });
@@ -183,11 +184,11 @@ describe('server', () => {
 
             await sendPacket(client, { type: PacketType.Subscribe, topic });
             await delay(100);
-            expect(server.subscription.get(topic)).toHaveProperty('length', 1);
+            expect(server.subscription.size(topic)).toBe(1);
 
             await sendPacket(client, { type: PacketType.Unsubscribe, topic });
             await delay(100);
-            expect(server.subscription.get(topic)).toHaveProperty('length', 0);
+            expect(server.subscription.size(topic)).toBe(0);
         });
 
         it('should return error if not subscribed', async () => {
@@ -199,7 +200,7 @@ describe('server', () => {
 
             await handlePacketPromise;
 
-            expect(server.subscription.get(packet.topic)).toHaveProperty('length', 0);
+            expect(server.subscription.size(packet.topic)).toBe(0);
 
             expect(handleResponse).toBeCalledTimes(1);
             expect(handleResponse).toBeCalledWith({ ...packet, error: 'NotSubscribed' });

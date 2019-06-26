@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/yume-chan/koshare-router-nodejs#readme",
   "devDependencies": {
-    "@types/debug": "^4.1.4",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.8",
     "@types/ws": "^6.0.1",
@@ -38,7 +37,11 @@
   },
   "dependencies": {
     "@yume-chan/async-operation-manager": "^1.0.1",
-    "debug": "^4.1.1",
+    "@yume-chan/koshare-router-client": "^1.0.1",
+    "@yume-chan/multi-map": "^1.0.2",
     "ws": "^7.0.1"
+  },
+  "peerDependencies": {
+    "@types/ws": "^6.0.1"
   }
 }

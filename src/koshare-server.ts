@@ -3,9 +3,8 @@ import { EventEmitter } from 'events';
 import WebSocket, { Server } from 'ws';
 
 import { PromiseResolver } from '@yume-chan/async-operation-manager';
-
-import MultiMap, { ReadonlyMultiMap } from './multi-map';
-import { PacketType } from './packet';
+import MultiMap, { ReadonlyMultiMap } from '@yume-chan/multi-map';
+import { PacketType } from '@yume-chan/koshare-router-client';
 
 export default class KoshareServer extends EventEmitter {
     public static async listen(options: import('ws').ServerOptions): Promise<KoshareServer> {
@@ -52,7 +51,7 @@ export default class KoshareServer extends EventEmitter {
     }
 
     private subscribe(id: number, topic: string): boolean {
-        if (this._subscription.get(topic).includes(id)) {
+        if (this._subscription.has(topic, id)) {
             return false;
         }
 
@@ -61,11 +60,11 @@ export default class KoshareServer extends EventEmitter {
     }
 
     private unsubscribe(id: number, topic: string): boolean {
-        if (!this._subscription.get(topic).includes(id)) {
+        if (!this._subscription.has(topic, id)) {
             return false;
         }
 
-        this._subscription.remove(topic, id);
+        this._subscription.delete(topic, id);
         return true;
     }
 
@@ -160,7 +159,7 @@ export default class KoshareServer extends EventEmitter {
                         break;
                     }
 
-                    if (!this._subscription.get(topic).includes(packet.dst)) {
+                    if (!this._subscription.has(topic, packet.dst)) {
                         break;
                     }
 
@@ -179,14 +178,14 @@ export default class KoshareServer extends EventEmitter {
 
         client.addEventListener('error', () => {
             for (const key of this._subscription.keys()) {
-                this._subscription.remove(key, id);
+                this._subscription.delete(key, id);
             }
             this._connections.delete(id);
         });
 
         client.addEventListener('close', () => {
             for (const key of this._subscription.keys()) {
-                this._subscription.remove(key, id);
+                this._subscription.delete(key, id);
             }
             this._connections.delete(id);
         });

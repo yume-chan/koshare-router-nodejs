@@ -7,3 +7,9 @@ export function randomString(length: number = 20) {
 export function randomPort() {
     return 9000 + Math.floor(Math.random() * 1000);
 }
+
+export function delay(time: number): Promise<void> {
+    return new Promise<void>(resolve => {
+        setTimeout(resolve, time);
+    });
+}

@@ -1,9 +1,9 @@
 dependencies:
   '@yume-chan/async-operation-manager': 1.0.1
-  debug: 4.1.1
+  '@yume-chan/koshare-router-client': 1.0.1_ws@7.0.1
+  '@yume-chan/multi-map': 1.0.2
   ws: 7.0.1
 devDependencies:
-  '@types/debug': 4.1.4
   '@types/jest': 24.0.15
   '@types/node': 12.0.8
   '@types/ws': 6.0.1
@@ -330,10 +330,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-CeBpmX1J8kWLcDEnI3Cl2Eo6RfbGvzUctA+CjZUhOKDFbLfcr7fc4usEqLNWetrlJd7RhAkyYe2czXop4fICpw==
-  /@types/debug/4.1.4:
-    dev: true
-    resolution:
-      integrity: sha512-D9MyoQFI7iP5VdpEyPZyjjqIJ8Y8EDNQFIFVLOmeg1rI1xiHOChyUPMPRUVfqFCerxfE+yS3vMyj37F6IdtOoQ==
   /@types/events/3.0.0:
     dev: true
     resolution:
@@ -388,6 +384,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ju38Oa9HKwpr5WgpuASCWQFak/02XuF1S8dET7n2eKYMmdxnMXIJHM+eLWqpwFouqkHu7mkeeJavvBWXGz257Q==
+  /@yume-chan/koshare-router-client/1.0.1_ws@7.0.1:
+    dependencies:
+      '@yume-chan/async-operation-manager': 1.0.1
+      '@yume-chan/multi-map': 1.0.2
+      ws: 7.0.1
+    dev: false
+    peerDependencies:
+      ws: ^7.0.1
+    resolution:
+      integrity: sha512-P+ObU+WK/WQ4x1VsVM2fRW3hgw6nWrhNrPyXJOND7C3DYrHMvmOTj3N1yWyc9Di6AThAfmKLWyKk6jOZVByKyQ==
+  /@yume-chan/multi-map/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-9eZxFjF6LadEaO21YHDrGHkJzt5Gtc10Uv7uwr2KzWT8X23hxqGML6n8RatvlCBz2f9KqZkxhfFD9lK/a6MWPA==
   /abab/2.0.0:
     dev: true
     resolution:
@@ -859,6 +869,7 @@ packages:
   /debug/4.1.1:
     dependencies:
       ms: 2.1.2
+    dev: true
     resolution:
       integrity: sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
   /decamelize/1.2.0:
@@ -1852,6 +1863,9 @@ packages:
       node: '>=6'
     peerDependencies:
       jest-resolve: '*'
+    peerDependenciesMeta:
+      jest-resolve:
+        optional: true
     resolution:
       integrity: sha512-pgFw2tm54fzgYvc/OHrnysABEObZCUNFnhjoRjaVOCN8NYc032/gVjPaHD4Aq6ApkSieWtfKAFQtmDKAmhupnQ==
   /jest-regex-util/24.3.0:
@@ -2346,6 +2360,7 @@ packages:
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
   /ms/2.1.2:
+    dev: true
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
   /nan/2.14.0:
@@ -3571,12 +3586,12 @@ packages:
     resolution:
       integrity: sha512-Lhz8TLaYnxq/2ObqHDql8dX8CJi97oHxrjUcYtzKbbykPtVW9WB+poxI+NM2UIzsMgNCZTIf0AQwsjK5yMAqZw==
 specifiers:
-  '@types/debug': ^4.1.4
   '@types/jest': ^24.0.15
   '@types/node': ^12.0.8
   '@types/ws': ^6.0.1
   '@yume-chan/async-operation-manager': ^1.0.1
-  debug: ^4.1.1
+  '@yume-chan/koshare-router-client': ^1.0.1
+  '@yume-chan/multi-map': ^1.0.2
   jest: ^24.8.0
   ts-jest: ^24.0.2
   typescript: ^3.5.2
