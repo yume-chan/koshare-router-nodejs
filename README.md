@@ -1,5 +1,7 @@
 # Koshare Router Server/Client for Node.js
 
+[![travis-ci](https://travis-ci.org/yume-chan/koshare-router-nodejs.svg?branch=master)](https://travis-ci.org/yume-chan/koshare-router-nodejs)
+
 - [Koshare Router Server/Client for Node.js](#Koshare-Router-ServerClient-for-Nodejs)
   - [What's Koshare Router](#Whats-Koshare-Router)
   - [Protocol Specification](#Protocol-Specification)
