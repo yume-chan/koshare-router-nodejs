@@ -42,7 +42,7 @@ function sendPacket(socket: WebSocket, packet: object): Promise<void> {
     return resolver.promise;
 }
 
-function handlePacket<A extends any[], R>(
+function handlePacket(
     socket: WebSocket,
     times: number,
     callback: (packet: object) => void,
