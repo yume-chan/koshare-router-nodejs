@@ -1,6 +1,6 @@
 # Koshare Router Server/Client for Node.js
 
-[![travis-ci](https://travis-ci.org/yume-chan/koshare-router-nodejs.svg?branch=master)](https://travis-ci.org/yume-chan/koshare-router-nodejs)
+[![travis-ci](https://travis-ci.org/yume-chan/koshare-router-nodejs.svg?branch=master)](https://travis-ci.org/yume-chan/koshare-router-nodejs) [![Greenkeeper badge](https://badges.greenkeeper.io/yume-chan/koshare-router-nodejs.svg)](https://greenkeeper.io/)
 
 - [Koshare Router Server/Client for Node.js](#Koshare-Router-ServerClient-for-Nodejs)
   - [What's Koshare Router](#Whats-Koshare-Router)
