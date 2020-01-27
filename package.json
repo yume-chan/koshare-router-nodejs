@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/yume-chan/koshare-router-nodejs#readme",
   "devDependencies": {
-    "@types/jest": "^24.0.15",
+    "@types/jest": "^25.1.0",
     "@types/node": "^12.12.11",
     "@types/ws": "^6.0.1",
     "jest": "^24.8.0",
