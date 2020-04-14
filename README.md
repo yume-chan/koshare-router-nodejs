@@ -18,7 +18,7 @@
 
 Koshare Router is a simple publish/subscribe protocol based on WebSocket designed by [@gladkikhartem](https://github.com/gladkikhartem).
 
-The original C++ server implementation is at [gladkikhartem/koshare-router](https://github.com/gladkikhartem/koshare-router).
+The original C++ server implementation used to be at [gladkikhartem/koshare-router](https://github.com/gladkikhartem/koshare-router), but had been deleted by its author.
 
 Since the original repository has been archived, and the original public server has been shut down, I created this Node.js implementation based on [ws](https://github.com/websockets/ws).
 
