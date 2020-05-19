@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/yume-chan/koshare-router-nodejs#readme",
   "devDependencies": {
-    "@types/jest": "^24.0.15",
-    "@types/node": "^13.1.0",
-    "@types/ws": "^7.2.4",
-    "jest": "^24.8.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.5.2"
+    "@types/jest": "24.9.1",
+    "@types/node": "13.13.6",
+    "@types/ws": "7.2.4",
+    "jest": "24.9.0",
+    "ts-jest": "25.5.1",
+    "typescript": "3.9.2"
   },
   "dependencies": {
     "@yume-chan/async-operation-manager": "^1.0.1",
