@@ -5,7 +5,7 @@ dependencies:
   ws: 7.0.1
 devDependencies:
   '@types/jest': 25.2.3
-  '@types/node': 13.13.8
+  '@types/node': 13.13.9
   '@types/ws': 7.2.4
   jest: 26.0.1
   ts-jest: 26.0.0_jest@26.0.1+typescript@3.9.3
@@ -565,10 +565,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zqRj8ugfROCjXCNbmPBe2mmQ0fJWP9lQaN519hwunOgpHgVykme4G6FW95++dyNFDvJUk4rtExkVkL0eciu5NA==
-  /@types/node/13.13.8:
+  /@types/node/13.13.9:
     dev: true
     resolution:
-      integrity: sha512-WJoiKALUF5exZo0G3T5coauJR2Tmc6rdE9/kgppZVnV6rlUB2dl3gTu2GTNBKhKF6SZ/WFfpEUIGNC/0qvdMWA==
+      integrity: sha512-EPZBIGed5gNnfWCiwEIwTE2Jdg4813odnG8iNPMQGrqVxrI+wL68SPtPeCX+ZxGBaA6pKAVc6jaKgP/Q0QzfdQ==
   /@types/normalize-package-data/2.4.0:
     dev: true
     resolution:
@@ -3881,7 +3881,7 @@ packages:
       integrity: sha512-92O1HWEjw27sBfgmXiixJWT5hRBp2eobqXicLtPBIDBhYB+1HpwZlXmbW2luivBJHBzki+7VyCLRtAkScbTBQA==
 specifiers:
   '@types/jest': 25.2.3
-  '@types/node': 13.13.8
+  '@types/node': 13.13.9
   '@types/ws': 7.2.4
   '@yume-chan/async-operation-manager': ^1.0.1
   '@yume-chan/koshare-router-client': ^1.0.1
