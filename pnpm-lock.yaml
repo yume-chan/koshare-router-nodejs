@@ -6,7 +6,7 @@ dependencies:
 devDependencies:
   '@types/jest': 25.2.3
   '@types/node': 13.13.9
-  '@types/ws': 7.2.4
+  '@types/ws': 7.2.5
   jest: 26.0.1
   ts-jest: 26.1.0_jest@26.0.1+typescript@3.9.3
   typescript: 3.9.3
@@ -581,12 +581,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
-  /@types/ws/7.2.4:
+  /@types/ws/7.2.5:
     dependencies:
-      '@types/node': 13.13.6
+      '@types/node': 13.13.9
     dev: true
     resolution:
-      integrity: sha512-9S6Ask71vujkVyeEXKxjBSUV8ZUB0mjL5la4IncBoheu04bDaYyUKErh1BQcY9+WzOUOiKqz/OnpJHYckbMfNg==
+      integrity: sha512-4UEih9BI1nBKii385G9id1oFrSkLcClbwtDfcYj8HJLQqZVAtb/42vXVrYvRWCcufNF/a+rZD3MxNwghA7UmCg==
   /@types/yargs-parser/15.0.0:
     dev: true
     resolution:
@@ -3882,7 +3882,7 @@ packages:
 specifiers:
   '@types/jest': 25.2.3
   '@types/node': 13.13.9
-  '@types/ws': 7.2.4
+  '@types/ws': 7.2.5
   '@yume-chan/async-operation-manager': ^1.0.1
   '@yume-chan/koshare-router-client': ^1.0.1
   '@yume-chan/multi-map': ^1.0.2
