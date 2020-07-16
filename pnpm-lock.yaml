@@ -8,8 +8,8 @@ devDependencies:
   '@types/node': 13.13.13
   '@types/ws': 7.2.6
   jest: 26.1.0
-  ts-jest: 26.1.2_jest@26.1.0+typescript@3.9.6
-  typescript: 3.9.6
+  ts-jest: 26.1.2_jest@26.1.0+typescript@3.9.7
+  typescript: 3.9.7
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.8.3:
@@ -3571,7 +3571,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-3n1qG+/5kg+jrbTzwAykB5yRYtQCTqOGKq5U5PE3b0a1/mzo6snDhjGS0zJVJunO0NrT3Dg1MLy5TjWP/UJppg==
-  /ts-jest/26.1.2_jest@26.1.0+typescript@3.9.6:
+  /ts-jest/26.1.2_jest@26.1.0+typescript@3.9.7:
     dependencies:
       bs-logger: 0.2.6
       buffer-from: 1.1.1
@@ -3583,7 +3583,7 @@ packages:
       make-error: 1.3.6
       mkdirp: 1.0.4
       semver: 7.3.2
-      typescript: 3.9.6
+      typescript: 3.9.7
       yargs-parser: 18.1.3
     dev: true
     engines:
@@ -3642,13 +3642,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
-  /typescript/3.9.6:
+  /typescript/3.9.7:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-Pspx3oKAPJtjNwE92YS05HQoY7z2SFyOpHo9MqJor3BXAGNaPUs83CuVp9VISFkSjyRfiTpmKuAYGJB7S7hOxw==
+      integrity: sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
   /union-value/1.0.1:
     dependencies:
       arr-union: 3.1.0
@@ -3893,5 +3893,5 @@ specifiers:
   '@yume-chan/multi-map': ^1.0.2
   jest: 26.1.0
   ts-jest: 26.1.2
-  typescript: 3.9.6
+  typescript: 3.9.7
   ws: ^7.0.1

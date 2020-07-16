@@ -33,7 +33,7 @@
     "@types/ws": "7.2.6",
     "jest": "26.1.0",
     "ts-jest": "26.1.2",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "@yume-chan/async-operation-manager": "^1.0.1",
