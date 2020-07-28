@@ -8,7 +8,7 @@ devDependencies:
   '@types/node': 13.13.13
   '@types/ws': 7.2.6
   jest: 26.1.0
-  ts-jest: 26.1.2_jest@26.1.0+typescript@3.9.7
+  ts-jest: 26.1.4_jest@26.1.0+typescript@3.9.7
   typescript: 3.9.7
 lockfileVersion: 5.1
 packages:
@@ -3571,7 +3571,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-3n1qG+/5kg+jrbTzwAykB5yRYtQCTqOGKq5U5PE3b0a1/mzo6snDhjGS0zJVJunO0NrT3Dg1MLy5TjWP/UJppg==
-  /ts-jest/26.1.2_jest@26.1.0+typescript@3.9.7:
+  /ts-jest/26.1.4_jest@26.1.0+typescript@3.9.7:
     dependencies:
       bs-logger: 0.2.6
       buffer-from: 1.1.1
@@ -3587,13 +3587,13 @@ packages:
       yargs-parser: 18.1.3
     dev: true
     engines:
-      node: '>= 10.21.0'
+      node: '>= 10'
     hasBin: true
     peerDependencies:
       jest: '>=26 <27'
       typescript: '>=3.8 <4.0'
     resolution:
-      integrity: sha512-V4SyBDO9gOdEh+AF4KtXJeP+EeI4PkOrxcA8ptl4o8nCXUVM5Gg/8ngGKneS5BsZaR9DXVQNqj9k+iqGAnpGow==
+      integrity: sha512-Nd7diUX6NZWfWq6FYyvcIPR/c7GbEF75fH1R6coOp3fbNzbRJBZZAn0ueVS0r8r9ral1VcrpneAFAwB3TsVS1Q==
   /tunnel-agent/0.6.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -3892,6 +3892,6 @@ specifiers:
   '@yume-chan/koshare-router-client': ^1.0.1
   '@yume-chan/multi-map': ^1.0.2
   jest: 26.1.0
-  ts-jest: 26.1.2
+  ts-jest: 26.1.4
   typescript: 3.9.7
   ws: ^7.0.1
