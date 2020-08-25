@@ -1,5 +1,5 @@
 dependencies:
-  '@yume-chan/async-operation-manager': 1.0.1
+  '@yume-chan/async-operation-manager': 2.0.0
   '@yume-chan/koshare-router-client': 1.0.1_ws@7.0.1
   '@yume-chan/multi-map': 1.0.2
   ws: 7.0.1
@@ -636,6 +636,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ju38Oa9HKwpr5WgpuASCWQFak/02XuF1S8dET7n2eKYMmdxnMXIJHM+eLWqpwFouqkHu7mkeeJavvBWXGz257Q==
+  /@yume-chan/async-operation-manager/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-Nqd2dZFFzjXUuVjQwJb1ODmSa7zFwqsNWkJnFrtD5PO+7fR4eWOh4adnS76rV2tSsr/fQnOlwsmFlY1UGI1EdA==
   /@yume-chan/koshare-router-client/1.0.1_ws@7.0.1:
     dependencies:
       '@yume-chan/async-operation-manager': 1.0.1
@@ -3950,7 +3954,7 @@ specifiers:
   '@types/jest': 26.0.9
   '@types/node': 13.13.13
   '@types/ws': 7.2.6
-  '@yume-chan/async-operation-manager': ^1.0.1
+  '@yume-chan/async-operation-manager': ^2.0.0
   '@yume-chan/koshare-router-client': ^1.0.1
   '@yume-chan/multi-map': ^1.0.2
   jest: 26.4.0
