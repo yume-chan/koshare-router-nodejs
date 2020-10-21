@@ -4,7 +4,7 @@ dependencies:
   '@yume-chan/multi-map': 1.0.2
   ws: 7.0.1
 devDependencies:
-  '@types/jest': 26.0.14
+  '@types/jest': 26.0.15
   '@types/node': 14.14.0
   '@types/ws': 7.2.7
   jest: 26.5.2
@@ -492,7 +492,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.2
       '@types/istanbul-reports': 3.0.0
-      '@types/node': 14.11.5
+      '@types/node': 14.14.0
       '@types/yargs': 15.0.5
       chalk: 4.0.0
     dev: true
@@ -581,6 +581,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Hz5q8Vu0D288x3iWXePSn53W7hAjP0H7EQ6QvDO9c7t46mR0lNOLlfuwQ+JkVxuhygHzlzPX+0jKdA3ZgSh+Vg==
+  /@types/jest/26.0.15:
+    dependencies:
+      jest-diff: 26.5.2
+      pretty-format: 26.5.2
+    dev: true
+    resolution:
+      integrity: sha512-s2VMReFXRg9XXxV+CW9e5Nz8fH2K1aEhwgjUqPPbQd7g95T0laAcvLv032EhFHIa5GHsZ8W7iJEQVaJq6k3Gog==
   /@types/node/14.11.5:
     dev: true
     resolution:
@@ -3932,7 +3939,7 @@ packages:
     resolution:
       integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
 specifiers:
-  '@types/jest': 26.0.14
+  '@types/jest': 26.0.15
   '@types/node': 14.14.0
   '@types/ws': 7.2.7
   '@yume-chan/async-operation-manager': ^2.0.0
